@@ -42,7 +42,7 @@ void setup() {
   servoY.attach(SERVO_Y_PIN);
 }
 void loop() {
-  static byte controlMoveStatus = 9;
+  static byte controlMoveStatus = 0;
   static byte speedMoveStatus = 0;
   static byte spectatorViewX = 90;
   static byte spectatorViewY = 90;
@@ -183,6 +183,34 @@ void controlMoveFunction(byte status, byte speed) {
 
       analogWrite(BACK_RIGHT_FORWARD_PIN, 0);
       analogWrite(BACK_RIGHT_BACKWARD_PIN, speed);
+      break;
+    case 9:
+      //backLeftOblique
+      analogWrite(FRONT_LEFT_FORWARD_PIN, 0);
+      analogWrite(FRONT_LEFT_BACKWARD_PIN, speed);
+
+      analogWrite(FRONT_RIGHT_FORWARD_PIN, 0);
+      analogWrite(FRONT_RIGHT_BACKWARD_PIN, 0);
+
+      analogWrite(BACK_LEFT_FORWARD_PIN, 0);
+      analogWrite(BACK_LEFT_BACKWARD_PIN, 0);
+
+      analogWrite(BACK_RIGHT_FORWARD_PIN, 0);
+      analogWrite(BACK_RIGHT_BACKWARD_PIN, speed);
+      break;
+    case 10:
+      //backReftOblique
+      analogWrite(FRONT_LEFT_FORWARD_PIN, 0);
+      analogWrite(FRONT_LEFT_BACKWARD_PIN, 0);
+
+      analogWrite(FRONT_RIGHT_FORWARD_PIN, 0);
+      analogWrite(FRONT_RIGHT_BACKWARD_PIN, speed);
+
+      analogWrite(BACK_LEFT_FORWARD_PIN, 0);
+      analogWrite(BACK_LEFT_BACKWARD_PIN, speed);
+
+      analogWrite(BACK_RIGHT_FORWARD_PIN, 0);
+      analogWrite(BACK_RIGHT_BACKWARD_PIN, 0);
       break;
     default:
       //stop
